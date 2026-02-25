@@ -1,0 +1,56 @@
+Function Description
+
+Complete the function twoStrings in the editor below.
+
+twoStrings has the following parameter(s):
+
+string s1: a string
+string s2: another string
+Returns
+
+string: either YES or NO
+Input Format
+
+The first line contains a single integer , the number of test cases.
+
+The following  pairs of lines are as follows:
+
+The first line contains string .
+The second line contains string .
+
+Program:
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static String twoStrings(String s1, String s2) {
+        Set<Character> set = new HashSet<>();
+        
+        for (char c : s1.toCharArray()) {
+            set.add(c);
+        }
+        
+        for (char c : s2.toCharArray()) {
+            if (set.contains(c)) {
+                return "YES";
+            }
+        }
+        
+        return "NO";
+    }
+
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        sc.nextLine();
+        
+        while (q-- > 0) {
+            String s1 = sc.nextLine();
+            String s2 = sc.nextLine();
+            System.out.println(twoStrings(s1, s2));
+        }
+        
+        sc.close();
+    }
+}

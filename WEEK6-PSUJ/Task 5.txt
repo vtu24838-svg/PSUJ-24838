@@ -1,0 +1,48 @@
+A space explorer's ship crashed on Mars! They send a series of SOS messages to Earth for help.
+
+
+Letters in some of the SOS messages are altered by cosmic radiation during transmission. Given the signal received by Earth as a string, , determine how many letters of the SOS message have been changed by radiation.
+Function Description
+
+Complete the marsExploration function in the editor below.
+
+marsExploration has the following parameter(s):
+
+string s: the string as received on Earth
+Returns
+
+int: the number of letters changed during transmission
+Input Format
+
+There is one line of input: a single string, .
+Program:
+
+import java.util.*;
+
+public class Solution {
+
+    public static int marsExploration(String s) {
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (i % 3 == 0 && s.charAt(i) != 'S') {
+                count++;
+            } 
+            else if (i % 3 == 1 && s.charAt(i) != 'O') {
+                count++;
+            } 
+            else if (i % 3 == 2 && s.charAt(i) != 'S') {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(marsExploration(s));
+        sc.close();
+    }
+}
